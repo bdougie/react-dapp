@@ -1,4 +1,5 @@
 require("@nomiclabs/hardhat-waffle");
+const METAMASK_KEY = process.env.METAMASK_KEY
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -22,9 +23,12 @@ module.exports = {
     artifacts: './src/artifacts',
   },
   networks: {
-    hardhat: {
-      chainId: 1337
+    hardhat: {},
+    ropsten: {
+      url: "https://ropsten.infura.io/v3/f1706711f9354abc8b0f4aae184f9974",
+      accounts: [`0x${METAMASK_KEY}`]
     }
-  }
+  },
+  solidity: "0.8.3",
 };
 
